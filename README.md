@@ -11,4 +11,6 @@ alterando na nuvem testando
 
 alterando no repositorio local / teste
 
+testando teclas de atalho
+
 

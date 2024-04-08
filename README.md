@@ -9,4 +9,6 @@ testando esse arquivo agora
 
 alterando na nuvem testando
 
+alterando no repositorio local / teste
+
 

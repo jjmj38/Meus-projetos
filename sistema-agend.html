@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Agendamento</title>
+<style>
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Agende seu atendimento aqui!</h2>
+  <form id="appointmentForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required><br><br>
+    
+    <label for="date">Data:</label>
+    <input type="date" id="date" required><br><br>
+    
+    <label for="time">Hora:</label>
+    <input type="time" id="time" required><br><br>
+    
+    <button type="submit">Agendar</button>
+  </form>
+  
+
+  <div id="appointments">
+    
+  </div>
+</div>
+
+<script>
+  const appointmentForm = document.getElementById('appointmentForm');
+  const appointmentsList = document.getElementById('appointments');
+
+  appointmentForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    const appointment = {
+      name: name,
+      date: date,
+      time: time
+    };
+
+    displayAppointment(appointment);
+    appointmentForm.reset();
+  });
+
+  function displayAppointment(appointment) {
+    const appointmentItem = document.createElement('div');
+    appointmentItem.classList.add('appointment-item');
+    appointmentItem.innerHTML = `
+    <br>
+    <br>
+      <strong>Nome:</strong> ${appointment.name}<br>
+      <strong>Data:</strong> ${appointment.date}<br>
+      <strong>Hora:</strong> ${appointment.time}<br><br>
+    `;
+    appointmentsList.appendChild(appointmentItem);
+
+  }
+</script>
+
+</body>
+</html>
